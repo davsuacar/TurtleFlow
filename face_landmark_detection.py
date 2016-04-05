@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import cv2
 import sys
 import os
 import dlib
@@ -9,7 +10,6 @@ from skimage import io
 import numpy
 
 numpy.set_printoptions(threshold=numpy.nan)
-
 
 if len(sys.argv) != 3:
     print(
@@ -29,9 +29,12 @@ detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(predictor_path)
 win = dlib.image_window()
 
-with open('data/test.csv', 'wb') as csvfile:
+with open('data/test_data_david.csv', 'wb') as csvdata,\
+        open('data/test_label_david.csv', 'wb') as csvlabel:
 
-    spamwriter = csv.writer(csvfile, delimiter=':',
+    dataset = csv.writer(csvdata, delimiter=':',
+                            quotechar='\t', quoting=csv.QUOTE_MINIMAL)
+    labelset = csv.writer(csvlabel, delimiter=':',
                             quotechar='\t', quoting=csv.QUOTE_MINIMAL)
 
     for f in glob.glob(os.path.join(faces_folder_path, "*.jpg")):
@@ -49,20 +52,18 @@ with open('data/test.csv', 'wb') as csvfile:
         for k, d in enumerate(dets):
             print("Detection {}: Left: {} Top: {} Right: {} Bottom: {}".format(
                 k, d.left(), d.top(), d.right(), d.bottom()))
+
+            cropped = img[d.left():d.right(), d.top():d.bottom()]
+            gray = cv2.cvtColor(cropped, cv2.COLOR_BGR2GRAY)
+
             # Get the landmarks/parts for the face in box d.
-            shape = predictor(img, d)
+            shape = predictor(gray, d)
             print("Part 0: {}, Part 1: {} ...".format(shape.part(0),
                                                       shape.part(1)))
             # Draw the face landmarks on the screen.
 
             win.add_overlay(shape)
-            spamwriter.writerow(["David",
-                                 d.left(),
-                                 d.top(),
-                                 d.right(),
-                                 d.bottom(),
-                                 [(shape.part(k).x, shape.part(k).y) for k in range(68)],
-                                 img]
-            )
+            dataset.writerow([y for k in range(68) for y in [shape.part(k).x, shape.part(k).y]])
+            labelset.writerow([0, 0, 1])
 
         win.add_overlay(dets)

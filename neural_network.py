@@ -4,6 +4,12 @@ This is a tensorflow neural network structure but it still should be adapted to 
 '''
 
 import tensorflow as tf
+from numpy import genfromtxt
+faces_data_train=genfromtxt('data/total/train_data.csv', delimiter=':')
+faces_label_train=genfromtxt('data/total/train_label.csv', delimiter=':')
+faces_data_test=genfromtxt('data/total/test_data.csv', delimiter=':')
+faces_label_test=genfromtxt('data/total/test_label.csv', delimiter=':')
+
 
 # Parameters
 learning_rate = 0.001
@@ -12,10 +18,9 @@ batch_size = 100
 display_step = 1
 
 # Network Parameters
-n_hidden_1 = 256 # 1st layer num features
-n_hidden_2 = 256 # 2nd layer num features
-n_input = 784 # Webcam data input (img shape: 28*28)
-n_classes = 3 # Three people classes(0-9 digits)
+n_hidden_1 = 32 # 1st layer num features
+n_input = 136 # Webcam landmarks data points input (points: 68*2)
+n_classes = 3 # Three people classes(David, Pepe, Marcos)
 
 # tf Graph input
 x = tf.placeholder("float", [None, n_input])
@@ -43,24 +48,32 @@ pred = multilayer_perceptron(x, weights, biases)
 cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(pred, y)) # Softmax loss
 optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost) # Adam Optimizer
 
+
 # Initializing the variables
 init = tf.initialize_all_variables()
 
+xs, ys = faces_data_train, faces_label_train
+xs_test, ys_test = faces_data_test, faces_label_test
+
 # Launch the graph
 with tf.Session() as sess:
+
+    # Merge all the summaries and write them out to /tmp/mnist_logs
+    merged = tf.merge_all_summaries()
+    writer = tf.train.SummaryWriter("/tmp/test", sess.graph_def)
+
     sess.run(init)
 
     # Training cycle
     for epoch in range(training_epochs):
         avg_cost = 0.
-        total_batch = int(mnist.train.num_examples/batch_size)
         # Loop over all batches
-        for i in range(total_batch):
-            batch_xs, batch_ys = mnist.train.next_batch(batch_size)
-            # Fit training using batch data
-            sess.run(optimizer, feed_dict={x: batch_xs, y: batch_ys})
-            # Compute average loss
-            avg_cost += sess.run(cost, feed_dict={x: batch_xs, y: batch_ys})/total_batch
+
+        # Fit training using batch data
+        result = sess.run(optimizer, feed_dict={x: xs, y: ys})
+
+        # Compute average loss
+        avg_cost += sess.run(cost, feed_dict={x: xs, y: ys})
         # Display logs per epoch step
         if epoch % display_step == 0:
             print "Epoch:", '%04d' % (epoch+1), "cost=", "{:.9f}".format(avg_cost)
@@ -71,4 +84,4 @@ with tf.Session() as sess:
     correct_prediction = tf.equal(tf.argmax(pred, 1), tf.argmax(y, 1))
     # Calculate accuracy
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
-    print "Accuracy:", accuracy.eval({x: mnist.test.images, y: mnist.test.labels})
+    print "Accuracy:", accuracy.eval({x: faces_data_test, y: faces_label_test})
