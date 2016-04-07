@@ -29,8 +29,8 @@ detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(predictor_path)
 win = dlib.image_window()
 
-with open('data/test_data_david.csv', 'wb') as csvdata,\
-        open('data/test_label_david.csv', 'wb') as csvlabel:
+with open('data/validation_data_david.csv', 'wb') as csvdata,\
+        open('data/validation_label_david.csv', 'wb') as csvlabel:
 
     dataset = csv.writer(csvdata, delimiter=':',
                             quotechar='\t', quoting=csv.QUOTE_MINIMAL)

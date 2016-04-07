@@ -9,12 +9,12 @@ faces_data_train=genfromtxt('data/total/train_data.csv', delimiter=':')
 faces_label_train=genfromtxt('data/total/train_label.csv', delimiter=':')
 faces_data_test=genfromtxt('data/total/test_data.csv', delimiter=':')
 faces_label_test=genfromtxt('data/total/test_label.csv', delimiter=':')
+faces_data_validation=genfromtxt('data/validation/validation_data_david.csv', delimiter=':').reshape(1,136)
 
 
 # Parameters
 learning_rate = 0.001
-training_epochs = 15
-batch_size = 100
+training_epochs = 50
 display_step = 1
 
 # Network Parameters
@@ -33,12 +33,12 @@ def multilayer_perceptron(_X, _weights, _biases):
 
 # Store layers weight & bias
 weights = {
-    'h1': tf.Variable(tf.random_normal([n_input, n_hidden_1])),
-    'out': tf.Variable(tf.random_normal([n_hidden_1, n_classes]))
+    'h1': tf.Variable(tf.truncated_normal([n_input, n_hidden_1])),
+    'out': tf.Variable(tf.truncated_normal([n_hidden_1, n_classes]))
 }
 biases = {
-    'b1': tf.Variable(tf.random_normal([n_hidden_1])),
-    'out': tf.Variable(tf.random_normal([n_classes]))
+    'b1': tf.Variable(tf.truncated_normal([n_hidden_1])),
+    'out': tf.Variable(tf.truncated_normal([n_classes]))
 }
 
 # Construct model
@@ -67,21 +67,29 @@ with tf.Session() as sess:
     # Training cycle
     for epoch in range(training_epochs):
         avg_cost = 0.
-        # Loop over all batches
 
-        # Fit training using batch data
-        result = sess.run(optimizer, feed_dict={x: xs, y: ys})
+        # Fit training using data
+        sess.run(optimizer, feed_dict={x: xs, y: ys})
 
         # Compute average loss
         avg_cost += sess.run(cost, feed_dict={x: xs, y: ys})
+
+        #print(avg_cost)
         # Display logs per epoch step
-        if epoch % display_step == 0:
-            print "Epoch:", '%04d' % (epoch+1), "cost=", "{:.9f}".format(avg_cost)
+        #if epoch % display_step == 0:
+            #print "Epoch:", '%04d' % (epoch+1), "cost=", "{:.9f}".format(avg_cost)
 
-    print "Optimization Finished!"
+    #print "Optimization Finished!"
 
+    #print (tf.argmax(y, 1))
     # Test model
+    print(tf.arg_max(y, 1))
     correct_prediction = tf.equal(tf.argmax(pred, 1), tf.argmax(y, 1))
     # Calculate accuracy
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
     print "Accuracy:", accuracy.eval({x: faces_data_test, y: faces_label_test})
+
+    feed_dict = {x: faces_data_validation}
+    #classification = sess.run(tf.argmax(pred, 1), feed_dict)
+    classification = sess.run(pred, feed_dict)
+    print classification
