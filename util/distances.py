@@ -27,7 +27,28 @@ def calculate_proportions(points):
 
     # Cheekbone distances
 
+    point16 = calculate_distance(points[31], points[36])
+    point17 = calculate_distance(points[32], points[41])
+    point18 = calculate_distance(points[33], points[40])
+    point19 = calculate_distance(points[33], points[39])
+    point20 = calculate_distance(points[33], points[42])
+    point21 = calculate_distance(points[33], points[47])
+    point22 = calculate_distance(points[34], points[46])
+    point23 = calculate_distance(points[35], points[45])
+
+
     # Height distances
+
+    point24 = calculate_distance(points[4], points[17])
+    point25 = calculate_distance(points[5], points[18])
+    point26 = calculate_distance(points[6], points[19])
+    point27 = calculate_distance(points[7], points[20])
+    point27 = calculate_distance(points[8], points[21])
+    point28 = calculate_distance(points[8], points[22])
+    point29 = calculate_distance(points[9], points[23])
+    point30 = calculate_distance(points[10], points[24])
+    point31 = calculate_distance(points[11], points[25])
+    point31 = calculate_distance(points[12], points[26])
 
     # Nasal Septum distances
 
