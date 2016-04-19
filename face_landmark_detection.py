@@ -8,6 +8,7 @@ import glob
 import csv
 from skimage import io
 import numpy
+import util.distances as distances
 
 numpy.set_printoptions(threshold=numpy.nan)
 
@@ -29,8 +30,8 @@ detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(predictor_path)
 win = dlib.image_window()
 
-with open('data/validation_data_david.csv', 'wb') as csvdata,\
-        open('data/validation_label_david.csv', 'wb') as csvlabel:
+with open('data/david/test_data_david.csv', 'wb') as csvdata,\
+        open('data/david/test_label_david.csv', 'wb') as csvlabel:
 
     dataset = csv.writer(csvdata, delimiter=':',
                             quotechar='\t', quoting=csv.QUOTE_MINIMAL)
@@ -63,7 +64,11 @@ with open('data/validation_data_david.csv', 'wb') as csvdata,\
             # Draw the face landmarks on the screen.
 
             win.add_overlay(shape)
-            dataset.writerow([y for k in range(68) for y in [shape.part(k).x, shape.part(k).y]])
+            points = [y for k in range(68) for y in [(shape.part(k).x, shape.part(k).y)]]
+
+            input_data = distances.calculate_proportions(points)
+
+            dataset.writerow([input_data])
             labelset.writerow([0, 0, 1])
 
         win.add_overlay(dets)

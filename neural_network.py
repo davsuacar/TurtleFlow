@@ -5,12 +5,14 @@ This is a tensorflow neural network structure but it still should be adapted to 
 
 import tensorflow as tf
 from numpy import genfromtxt
-faces_data_train=genfromtxt('data/total/train_data.csv', delimiter=':')
-faces_label_train=genfromtxt('data/total/train_label.csv', delimiter=':')
-faces_data_test=genfromtxt('data/total/test_data.csv', delimiter=':')
-faces_label_test=genfromtxt('data/total/test_label.csv', delimiter=':')
-faces_data_validation=genfromtxt('data/validation/validation_data_david.csv', delimiter=':').reshape(1,136)
 
+faces_data_train=genfromtxt('data/total/train_data.csv', delimiter=',')
+faces_label_train=genfromtxt('data/total/train_label.csv', delimiter=':')
+faces_data_test=genfromtxt('data/total/test_data.csv', delimiter=',')
+faces_label_test=genfromtxt('data/total/test_label.csv', delimiter=':')
+faces_data_validation=genfromtxt('data/validation/validation_data_david.csv', delimiter=',').reshape(1,69)
+
+print faces_data_train
 
 # Parameters
 learning_rate = 0.001
@@ -19,7 +21,7 @@ display_step = 1
 
 # Network Parameters
 n_hidden_1 = 32 # 1st layer num features
-n_input = 136 # Webcam landmarks data points input (points: 68*2)
+n_input = 69 # Webcam landmarks data points input distances
 n_classes = 3 # Three people classes(David, Pepe, Marcos)
 
 # tf Graph input
