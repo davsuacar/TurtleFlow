@@ -6,17 +6,17 @@ This is a tensorflow neural network structure but it still should be adapted to 
 import tensorflow as tf
 from numpy import genfromtxt
 
-faces_data_train=genfromtxt('data/total/train_data.csv', delimiter=',')
+faces_data_train=genfromtxt('data/total/train_data.csv', delimiter=':')
 faces_label_train=genfromtxt('data/total/train_label.csv', delimiter=':')
-faces_data_test=genfromtxt('data/total/test_data.csv', delimiter=',')
+faces_data_test=genfromtxt('data/total/test_data.csv', delimiter=':')
 faces_label_test=genfromtxt('data/total/test_label.csv', delimiter=':')
-faces_data_validation=genfromtxt('data/validation/validation_data_david.csv', delimiter=',').reshape(1,69)
+faces_data_validation=genfromtxt('data/validation/validation_data_david.csv', delimiter=':')
 
 print faces_data_train
 
 # Parameters
 learning_rate = 0.001
-training_epochs = 50
+training_epochs = 1000
 display_step = 1
 
 # Network Parameters
