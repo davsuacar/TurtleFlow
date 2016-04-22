@@ -1,14 +1,16 @@
 #!/usr/bin/python
 
+from PIL import Image
 import cv2
 import sys
 import os
 import dlib
 import glob
 import csv
-from skimage import io
+from skimage import io, transform
 import numpy
 import util.distances as distances
+import time
 
 numpy.set_printoptions(threshold=numpy.nan)
 
@@ -30,8 +32,8 @@ detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(predictor_path)
 win = dlib.image_window()
 
-with open('data/david/test_data_david.csv', 'wb') as csvdata,\
-        open('data/david/test_label_david.csv', 'wb') as csvlabel:
+with open('data/xavi/train_data_xavi.csv', 'wb') as csvdata,\
+        open('data/xavi/train_label_xavi.csv', 'wb') as csvlabel:
 
     dataset = csv.writer(csvdata, delimiter=':',
                             quotechar='\t', quoting=csv.QUOTE_MINIMAL)
@@ -41,6 +43,7 @@ with open('data/david/test_data_david.csv', 'wb') as csvdata,\
     for f in glob.glob(os.path.join(faces_folder_path, "*.jpg")):
         print("Processing file: {}".format(f))
         img = io.imread(f)
+        print f
 
         win.clear_overlay()
         win.set_image(img)
@@ -66,9 +69,10 @@ with open('data/david/test_data_david.csv', 'wb') as csvdata,\
             win.add_overlay(shape)
             points = [y for k in range(68) for y in [(shape.part(k).x, shape.part(k).y)]]
 
+            print points
             input_data = distances.calculate_proportions(points)
 
-            dataset.writerow([input_data])
-            labelset.writerow([0, 0, 1])
+            dataset.writerow(input_data)
+            labelset.writerow([0, 1, 0])
 
         win.add_overlay(dets)

@@ -17,6 +17,7 @@ def calculate_proportions(points):
     distances[6] = calculate_distance(points[6], points[10])
     distances[7] = calculate_distance(points[7], points[9])
 
+
     # Border distances
     distances[8] = calculate_distance(points[0], points[1])
     distances[9] = calculate_distance(points[1], points[2])
@@ -103,9 +104,9 @@ def calculate_proportions(points):
     distances[67] = calculate_distance(points[29], points[45])
     distances[68] = calculate_distance(points[30], points[45])
 
-    to_normalize = calculate_distance(points[27], points[33])
+    #to_normalize = calculate_distance(points[27], points[33])
 
-    distances[:] = [x / to_normalize for x in distances]
+    #distances[:] = [x / to_normalize for x in distances]
 
     return distances
 
