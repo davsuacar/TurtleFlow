@@ -12,8 +12,6 @@ faces_data_test=genfromtxt('data/total/test_data.csv', delimiter=':')
 faces_label_test=genfromtxt('data/total/test_label.csv', delimiter=':')
 faces_data_validation=genfromtxt('data/validation/validation_data_david.csv', delimiter=':')
 
-print faces_data_train
-
 # Parameters
 learning_rate = 0.09
 training_epochs = 100
@@ -54,6 +52,9 @@ optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost) #
 # Initializing the variables
 init = tf.initialize_all_variables()
 
+# defaults to saving all variables - in this case w and b
+saver = tf.train.Saver()
+
 xs, ys = faces_data_train, faces_label_train
 xs_test, ys_test = faces_data_test, faces_label_test
 
@@ -84,6 +85,12 @@ with tf.Session() as sess:
     #print "Optimization Finished!"
 
     #print (tf.argmax(y, 1))
+
+
+    #Save model
+    save_path = saver.save(sess, "/tmp/model.ckpt")
+    print("Model saved in file: %s" % save_path)
+
     # Test model
     print(tf.arg_max(y, 1))
     correct_prediction = tf.equal(tf.argmax(pred, 1), tf.argmax(y, 1))
@@ -92,6 +99,6 @@ with tf.Session() as sess:
     print "Accuracy:", accuracy.eval({x: faces_data_test, y: faces_label_test})
 
     feed_dict = {x: faces_data_validation}
-    #classification = sess.run(tf.argmax(pred, 1), feed_dict)
+
     classification = sess.run(pred, feed_dict)
     print classification

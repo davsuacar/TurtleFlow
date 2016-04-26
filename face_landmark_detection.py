@@ -1,16 +1,14 @@
 #!/usr/bin/python
 
-from PIL import Image
 import cv2
 import sys
 import os
 import dlib
 import glob
 import csv
-from skimage import io, transform
+from skimage import io
 import numpy
 import util.distances as distances
-import time
 
 numpy.set_printoptions(threshold=numpy.nan)
 
@@ -69,7 +67,6 @@ with open('data/xavi/train_data_xavi.csv', 'wb') as csvdata,\
             win.add_overlay(shape)
             points = [y for k in range(68) for y in [(shape.part(k).x, shape.part(k).y)]]
 
-            print points
             input_data = distances.calculate_proportions(points)
 
             dataset.writerow(input_data)
