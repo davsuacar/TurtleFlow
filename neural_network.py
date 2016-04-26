@@ -15,14 +15,14 @@ faces_data_validation=genfromtxt('data/validation/validation_data_david.csv', de
 print faces_data_train
 
 # Parameters
-learning_rate = 0.001
-training_epochs = 1000
+learning_rate = 0.09
+training_epochs = 100
 display_step = 1
 
 # Network Parameters
 n_hidden_1 = 32 # 1st layer num features
 n_input = 69 # Webcam landmarks data points input distances
-n_classes = 3 # Three people classes(David, Pepe, Marcos)
+n_classes = 3 # Three people classes(David, Cristiano, Xavi)
 
 # tf Graph input
 x = tf.placeholder("float", [None, n_input])
