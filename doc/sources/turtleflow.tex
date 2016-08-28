@@ -64,22 +64,24 @@ Con respecto a la parte de desarrollo podemos diferencias las siguientes:
 \section{Identificacion de caras}
 En este punto nos referimos al estudio y procesado de imágenes para la identificacion de caras en ella, es decir, no queremos identificar a la persona aun, simplemente distinguir entre la cara y el resto del cuerpo.
 
-Para este problema se estudiaron dos posibles soluciones:
+La solución a este problema está ya bastante optimizada, existen varias librerías en el mercado que lo solventan. Primero ha sido testeado mediante el uso de openCV, utilizando haar cascades cuyos resultados fueron buenos y posteriormente he terminado utilizando Dlib, ya que tiene un método creado específicamente para ello y los resultados eran mejores.
 
-\subsection{Haar Cascades}
-
-\subsection{Dlib}
-
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=100mm, height=80mm]{images/face-detect_square.png}
+  \caption{Imagen 1}
+\end{figure}
 
 \section{Landmarks}
+Para este problema hemos probado dos soluciones diferentes, ambas basadas en openCV.  
 
 \subsection{Haar Cascades}
-
+La primera ha sido utilizando haar cascades de los ojos y la sonrisa, lo cual no daba un resultado muy óptimo ya que a veces no era capaz de detectar ambos ojos, o no era capaz de detectar la boca. Esto causaba muchos problemas a la hora de introducir los datos en la red neuronal ya que el número de entradas no puede variar. En el caso de streaming esto era especialmente problemático ya que era más dificultoso filtrar los frames que no habían sido correctamente clasificados.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=100mm, height=80mm]{images/face_detection_haar_cascades.jpg}
-  \caption{Imagen 1}
+  \caption{Detección de cara y ojos haar cascades}
 \end{figure}
 
 \subsection{Dlib}
