@@ -6,6 +6,8 @@ This is a tensorflow neural network structure but it still should be adapted to 
 import tensorflow as tf
 from numpy import genfromtxt
 
+ # TODO Extract data from new CSV
+
 faces_data_train=genfromtxt('data/total/train_data.csv', delimiter=':')
 faces_label_train=genfromtxt('data/total/train_label.csv', delimiter=':')
 faces_data_test=genfromtxt('data/total/test_data.csv', delimiter=':')

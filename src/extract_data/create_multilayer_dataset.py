@@ -18,7 +18,7 @@ if len(sys.argv) != 3:
         "argument and then the directory containing the facial images.\n"
         "For example, if you are in the python_examples folder then "
         "execute this program by running:\n"
-        "    ./face_landmark_detection.py shape_predictor_68_face_landmarks.dat ../examples/faces\n"
+        "    ./create_multilayer_dataset.py shape_predictor_68_face_landmarks.dat ../examples/faces\n"
         "You can download a trained facial shape predictor from:\n"
         "    http://sourceforge.net/projects/dclib/files/dlib/v18.10/shape_predictor_68_face_landmarks.dat.bz2")
     exit()
@@ -31,17 +31,15 @@ predictor = dlib.shape_predictor(predictor_path)
 win = dlib.image_window()
 
 with open('../../data/multilayer/data.csv', 'wb') as csvdata:
-
     dataset = csv.writer(csvdata, delimiter=':',
-                            quotechar='\t', quoting=csv.QUOTE_MINIMAL)
+                         quotechar='\t', quoting=csv.QUOTE_MINIMAL)
 
     i = 0
     for subdir, dirs, files in os.walk(faces_folder_path):
-
+        print "Starting from..." + subdir
         for f in glob.glob(os.path.join(subdir, "*.jpg")):
 
             print os.path.join(subdir, f)
-
 
             img = io.imread(f)
 
