@@ -12,6 +12,9 @@ import util.distances as distances
 
 numpy.set_printoptions(threshold=numpy.nan)
 
+resize_x = 80
+resize_y = 80
+
 if len(sys.argv) != 2:
     print(
         "Give the path to the trained shape predictor model as the first "
@@ -28,22 +31,24 @@ faces_folder_path = sys.argv[1]
 win = dlib.image_window()
 
 with open('../../data/convolutional/data.csv', 'wb') as csvdata:
-    dataset = csv.writer(csvdata, delimiter=':',
-                         quotechar='\t', quoting=csv.QUOTE_MINIMAL)
+    fieldnames = ['image', 'label']
+    dataset = csv.DictWriter(csvdata, fieldnames=fieldnames, quoting=csv.QUOTE_ALL, delimiter=':')
+
+    dataset.writeheader()
 
     i = 0
     for subdir, dirs, files in os.walk(faces_folder_path):
         print "Starting from..." + subdir
         for f in glob.glob(os.path.join(subdir, "*.jpg")):
-
             print os.path.join(subdir, f)
 
             img = io.imread(f)
 
-            # TODO Extract image vector and append index folder
-            print img
-            # input_points = numpy.reshape(img, -1)
+            img = cv2.resize(img, (resize_x, resize_y),
+                             interpolation=cv2.INTER_AREA)
 
-            dataset.writerow('1')
+            img = img.reshape(-1)
+
+            dataset.writerow({'image': numpy.array_str(img), 'label': i})
 
         i += 1
