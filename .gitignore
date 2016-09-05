@@ -87,9 +87,6 @@ ENV/
 # Pycharm
 .idea
 
-# Notebooks
-notebooks/*
-
 # Images
 img/*
 
