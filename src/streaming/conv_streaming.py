@@ -3,6 +3,7 @@ import dlib
 import tensorflow as tf
 import numpy
 
+detector = dlib.get_frontal_face_detector()
 
 def conv2d(x, W):
     return tf.nn.conv2d(
@@ -81,12 +82,7 @@ b_fc3 = tf.Variable(tf.constant(0.0, shape=[OUTPUTS]))
 y_logits = tf.matmul(h_drop, W_fc3) + b_fc3
 y_softmax = tf.nn.softmax(y_logits)
 
-#loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(y_logits, y))
 optimizer = tf.train.AdamOptimizer(LEARNING_RATE)
-#train_step = optimizer.minimize(loss)
-
-#correct_prediction = tf.equal(tf.argmax(y_softmax, 1), tf.argmax(y, 1))
-#accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
 # defaults to saving all variables - in this case w and b
 saver = tf.train.Saver()
@@ -102,6 +98,10 @@ with tf.Session() as sess:
 
         win.clear_overlay()
         win.set_image(frame)
+
+        win.add_overlay(dlib.rectangle(long(260), long(160), long(420), long(320)))
+
+        dets = detector(frame)
 
         img = cv2.resize(frame, (resize_x, resize_y),
                          interpolation=cv2.INTER_AREA)

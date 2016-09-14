@@ -39,7 +39,7 @@ with open('../../data/convolutional/data.csv', 'wb') as csvdata:
     i = 0
     for subdir, dirs, files in os.walk(faces_folder_path):
         print "Starting from..." + subdir
-        for f in glob.glob(os.path.join(subdir, "*.jpg")):
+        for f in glob.glob(os.path.join(subdir, "*.png")):
             print os.path.join(subdir, f)
 
             img = io.imread(f)
