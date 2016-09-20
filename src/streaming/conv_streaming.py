@@ -1,3 +1,5 @@
+from __future__ import division
+
 import cv2
 import dlib
 import tensorflow as tf
@@ -103,17 +105,23 @@ with tf.Session() as sess:
 
         dets = detector(frame)
 
-        img = cv2.resize(frame, (resize_x, resize_y),
-                         interpolation=cv2.INTER_AREA)
+        for k, d in enumerate(dets):
+            print(
+            "Detection {}: Left: {} Top: {} Right: {} Bottom: {}".format(k, d.left(), d.top(), d.right(), d.bottom()))
+            # Get the landmarks/parts for the face in box d.
 
-        img = img.reshape(-1).reshape(1, 19200)
 
-        img = numpy.array(img) / 255
+            img = cv2.resize(frame[d.top():d.top() + d.height(), d.left(): d.left() + d.width()], (resize_x, resize_y),
+                             interpolation=cv2.INTER_AREA)
 
-        feed_dict = {x: img, pkeep: 1.0}
+            img = img.reshape(-1).reshape(1, 19200)
 
-        classification = sess.run(y_softmax, feed_dict)
-        print classification
+            img = numpy.array(img) / 255
+
+            feed_dict = {x: img, pkeep: 1.0}
+
+            classification = sess.run(y_softmax, feed_dict)
+            print classification
 
         # Display the resulting frame
         cv2.imshow('Video', frame)
