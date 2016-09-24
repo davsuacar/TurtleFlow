@@ -1,0 +1,16 @@
+\BOOKMARK [1][-]{section.1}{Introducci\363n}{}% 1
+\BOOKMARK [1][-]{section.2}{Objetivo}{}% 2
+\BOOKMARK [1][-]{section.3}{Fases de investigaci\363n y desarrollo}{}% 3
+\BOOKMARK [1][-]{section.4}{Identificacion de caras}{}% 4
+\BOOKMARK [1][-]{section.5}{Landmarks}{}% 5
+\BOOKMARK [2][-]{subsection.5.1}{Haar Cascades}{section.5}% 6
+\BOOKMARK [2][-]{subsection.5.2}{Dlib}{section.5}% 7
+\BOOKMARK [1][-]{section.6}{Algoritmo de c\341lculo de distancias}{}% 8
+\BOOKMARK [1][-]{section.7}{Red Neuronal Multicapa}{}% 9
+\BOOKMARK [1][-]{section.8}{Red Neuronal Convolucional}{}% 10
+\BOOKMARK [1][-]{section.9}{Resultados}{}% 11
+\BOOKMARK [2][-]{subsection.9.1}{Red Neuronal Multicapa y Algoritmo de c\341lculo de distancias}{section.9}% 12
+\BOOKMARK [2][-]{subsection.9.2}{Red Neuronal Convolucional}{section.9}% 13
+\BOOKMARK [2][-]{subsection.9.3}{Video Tutorial}{section.9}% 14
+\BOOKMARK [2][-]{subsection.9.4}{Demo}{section.9}% 15
+\BOOKMARK [1][-]{section.10}{Agradecimientos}{}% 16

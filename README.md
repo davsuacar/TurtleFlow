@@ -1,19 +1,43 @@
-TURTLEBOT WITH TENSORFLOW
+TURTLEFLOW
 ==========
+Application to recognize and identify people based in a Convolutional Neural Network designed using TensorFlow.
 
-This repository contains the python process to recognise people from TurtleBot.
+To execute the application we have to follow the next steps
 
-## Run python application
+## Create images
 
 ```
-python main.py haarcascade_frontalface_default.xml haarcascade_eye.xml haarcascade_smile.xml
+python src/take_face_square.py /<path>/<to>/<project>/data/shape_predictor_68_face_landmarks.dat
 ```
+
+## Load data to CSV
+
+```
+python src/create_convolutional_dataset.py /<path>/<to>/<project>/img
+```
+
+## Execute Video Streaming and People Identification application.
+
+```
+jupyter notebook
+```
+
+Execute notebook called notebooks/Convolutional Neural Network.ipynb
+
 
 ### Tech
-Turtle with Tensorflow is based on the following technologies:
+TurtleFlow technologies requirements:
 
   - [OpenCV] - Open Source computer vision.
+  - [Dlib] - Machine Learning library.
   - [TensorFlow] - TensorFlow is an Open Source Software Library for Machine Intelligence.
+  - [Pandas] - Data manage python library.
+  - [Scikit-learn] - Machine Learning library.
+  - [Numpy] - Data manage library.
 
    [OpenCV]: <http://opencv.org/>
+   [Dlib]: <http://dlib.net/>
    [TensorFlow]: <https://www.tensorflow.org/>
+   [Pandas]: <http://pandas.pydata.org/>
+   [Scikit-learn]: <http://scikit-learn.org/stable/>
+   [Numpy]: <http://www.numpy.org/>

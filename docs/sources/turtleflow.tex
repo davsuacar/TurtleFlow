@@ -7,6 +7,7 @@
 \usepackage{graphicx}
 \usepackage{listings}
 \usepackage{url}
+\usepackage{hyperref}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -226,13 +227,22 @@ La entrada de la imagen consiste en el recorte de la cara detectada en la imagen
 Finalmente y a modo de conclusión procederé a la explicación de los resultados obtenidos mediante ambas ramas de investigación:
 
 \subsection{Red Neuronal Multicapa y Algoritmo de cálculo de distancias}
-
+Finalmente mediante esta arquitectura no se han conseguido grandes resultados en comparación con la siguiente.
+Durante el entrenamiento de la red la mayor precisión conseguida ha sido un 70\% en la predicción lo cual es un buen resultado teniendo en cuenta el estado del arte de las aplicaciones actuales que encontramos en el mercado.\newline El problema infranqueable surgió a la hora de implantar esta arquitectura en el proceso de predicción mediante video en streaming. La precisión disminuía por debajo del random(50\%) debido a la similitud de las medidas obtenidas entre personas diferentes a causa de la lentitud del enfoque de la cámara y de la necesidad de una altísima resolución.
 
 \subsection{Red Neuronal Convolucional}
+Esta arquitectura ha sido finalmente la más exitosa.\newline Tras un proceso muy costoso de calibrado de la red y entrenamiento con mil doscientas fotos por persona he conseguido un 98\% de precisión en la identificación.\newline
+Al insertar esta arquitectura en el proceso de streaming los resultados siguieron siendo buenos como se puede observar en la demo que se enlaza a continuación. He detectado un pequeño retardo en la identificación cuando la camara capta mucho movimiento debido a el tiempo que tarda en enfocar y enviar los datos limpios pero aun así los resultados son sorprendentes.
+
+\subsection{Video Tutorial}
+Youtube Link:
 
 \subsection{Demo}
 Youtube Link:
-https://youtu.be/RxMD2-Wopdw
+\url{https://youtu.be/RxMD2-Wopdw}
+
+\section{Agradecimientos}
+Quiero agradecer a mi amigo Gabriel Muñoz Ríos \cite{gabriel_munoz} sus continuas aportaciones tanto por su amplio conocimiento del tema como por su inquebrantable confianza en la obtención de resultados.
 
 \bibliographystyle{plain}
 \bibliography{turtleflow}

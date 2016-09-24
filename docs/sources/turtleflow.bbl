@@ -1,5 +1,9 @@
 \begin{thebibliography}{1}
 
+\bibitem{gabriel_munoz}
+Gabriel muñoz ríos.
+\newblock \url{https://es.linkedin.com/in/gabrielmunozrios}.
+
 \bibitem{tensorflow2015-whitepaper}
 Mart\'{\i}n Abadi, Ashish Agarwal, Paul Barham, Eugene Brevdo, Zhifeng Chen,
   Craig Citro, Greg~S. Corrado, Andy Davis, Jeffrey Dean, Matthieu Devin,
@@ -13,5 +17,35 @@ Mart\'{\i}n Abadi, Ashish Agarwal, Paul Barham, Eugene Brevdo, Zhifeng Chen,
 \newblock {TensorFlow}: Large-scale machine learning on heterogeneous systems.
 \newblock \url{http://tensorflow.org/}, 2015.
 \newblock Software available from tensorflow.org.
+
+\bibitem{activation_function}
+Wikipedia.
+\newblock Activation function.
+\newblock \url{https://en.wikipedia.org/wiki/Activation_function}.
+
+\bibitem{sigmoid}
+Wikipedia.
+\newblock Activation function.
+\newblock \url{https://en.wikipedia.org/wiki/Sigmoid_function}.
+
+\bibitem{softmax}
+Wikipedia.
+\newblock Activation function.
+\newblock \url{https://en.wikipedia.org/wiki/Softmax_function}.
+
+\bibitem{RNA}
+Wikipedia.
+\newblock Artificial neural network.
+\newblock \url{https://en.wikipedia.org/wiki/Artificial_neural_network}.
+
+\bibitem{RNC}
+Wikipedia.
+\newblock Convolutional neural network.
+\newblock \url{https://en.wikipedia.org/wiki/Convolutional_neural_network}.
+
+\bibitem{loss_function}
+Wikipedia.
+\newblock Loss function.
+\newblock \url{https://en.wikipedia.org/wiki/Loss_function}.
 
 \end{thebibliography}

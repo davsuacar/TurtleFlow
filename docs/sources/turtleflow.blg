@@ -3,44 +3,46 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: turtleflow.aux
 The style file: plain.bst
 Database file #1: turtleflow.bib
-You've used 1 entry,
+Warning--to sort, need author or key in gabriel_munoz
+You've used 8 entries,
             2118 wiz_defined-function locations,
-            502 strings with 4880 characters,
-and the built_in function-call counts, 1451 in all, are:
-= -- 101
-> -- 203
+            524 strings with 5447 characters,
+and the built_in function-call counts, 2834 in all, are:
+= -- 230
+> -- 246
 < -- 0
-+ -- 81
-- -- 80
-* -- 165
-:= -- 280
-add.period$ -- 4
-call.type$ -- 1
-change.case$ -- 43
++ -- 100
+- -- 92
+* -- 200
+:= -- 501
+add.period$ -- 24
+call.type$ -- 8
+change.case$ -- 70
 chr.to.int$ -- 0
-cite$ -- 1
-duplicate$ -- 7
-empty$ -- 23
-format.name$ -- 80
-if$ -- 246
+cite$ -- 9
+duplicate$ -- 56
+empty$ -- 178
+format.name$ -- 92
+if$ -- 556
 int.to.chr$ -- 0
-int.to.str$ -- 1
+int.to.str$ -- 8
 missing$ -- 0
-newline$ -- 9
-num.names$ -- 2
-pop$ -- 47
+newline$ -- 43
+num.names$ -- 14
+pop$ -- 103
 preamble$ -- 1
-purify$ -- 42
+purify$ -- 62
 quote$ -- 0
-skip$ -- 6
+skip$ -- 62
 stack$ -- 0
-substring$ -- 5
-swap$ -- 1
+substring$ -- 40
+swap$ -- 8
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 4
-warning$ -- 0
-while$ -- 2
-width$ -- 2
-write$ -- 14
+type$ -- 32
+warning$ -- 1
+while$ -- 14
+width$ -- 9
+write$ -- 75
+(There was 1 warning)
