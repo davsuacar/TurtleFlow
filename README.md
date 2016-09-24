@@ -48,7 +48,7 @@ Here you can find a pdf document with the full research process and project arch
 
 ### Video Tutorial
 Video tutorial explaining the project structure.
-[Video Tutorial]: <https://youtu.be/C1K6JdAoAjA>
+[Video Tutorial](https://youtu.be/C1K6JdAoAjA)
 ### Demo
 Real demo identifying two different people.
-[Demo]: <https://youtu.be/RxMD2-Wopdw>
+[Demo](https://youtu.be/RxMD2-Wopdw)
