@@ -30,7 +30,7 @@
   tabsize=3
 }
 
-\title{People Identification}
+\title{Turtleflow - Identificación de Personas}
 \author{David Suárez}
 \date{\today}
 
@@ -156,7 +156,7 @@ Las Redes Neuronales Artificiales (RNA) \cite{RNA} son sistemas de procesamiento
 \begin{figure}[H]
   \centering
   \includegraphics[width=100mm, height=80mm]{images/multilayer_nn.png}
-  \caption{Multilayer Representation}
+  \caption{Representacion red multicapa}
 \end{figure}
 
 
@@ -167,13 +167,13 @@ En nuestro caso hemos utilizado la función softmax \cite{softmax} que es una va
 \begin{figure}[H]
   \centering
   \includegraphics[width=100mm, height=80mm]{images/hidden_nn.png}
-  \caption{Multilayer Architecture}
+  \caption{Arquitectura multicapa}
 \end{figure}
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=100mm, height=80mm]{images/Flowchart.png}
-  \caption{Multilayer Architecture}
+  \caption{Flujo arquitectura multicapa}
 \end{figure}
 
 
@@ -186,7 +186,7 @@ La estructura de la red también cambia respecto a la anterior. A modo de resume
 \begin{figure}[H]
   \centering
   \includegraphics[width=100mm, height=80mm]{images/conv_nn_squema.jpg}
-  \caption{Multilayer Architecture}
+  \caption{Proceso Convolucional}
 \end{figure}
 
 Nuestra red consistirá de cuatro capas convolucionales, dos capas ocultas y la capa de salida. A continuación podemos ver un gráfico que explica de manera simple el cálculo de la salida final de la red.
@@ -194,7 +194,7 @@ Nuestra red consistirá de cuatro capas convolucionales, dos capas ocultas y la 
 \begin{figure}[H]
   \centering
   \includegraphics[width=100mm, height=80mm]{images/conv_nn.png}
-  \caption{Ancho}
+  \caption{Red Convolucional}
 \end{figure}
 
 En el gráfico inferior podemos observar el proceso de aprendizaje de la red mediante la representación de la precisión de la red y la función de coste en relación al número de iteraciones sobre los datos de entrenamiento.
@@ -204,7 +204,7 @@ En este primer gráfico podemos ver representadas dos funciones, la primera(verd
 \begin{figure}[H]
   \centering
   \includegraphics[width=100mm, height=80mm]{images/accuracy.png}
-  \caption{Ancho}
+  \caption{Precisión}
 \end{figure}
 
 En este siguiente gráfico vemos representada la función de coste, que como podemos observar va disminuyendo el error en la predicción conforme vamos iterando.
@@ -212,7 +212,7 @@ En este siguiente gráfico vemos representada la función de coste, que como pod
 \begin{figure}[H]
   \centering
   \includegraphics[width=100mm, height=80mm]{images/loss_function.png}
-  \caption{Ancho}
+  \caption{Función de coste}
 \end{figure}
 
 La entrada de la imagen consiste en el recorte de la cara detectada en la imagen como se puede ver de manera descriptiva en el grafico inferior. He realizado diferentes pruebas aplicando filtros a la imagen recortada, como podría ser reducir la imagen a blanco y negro pero los resultados obtenidos no han sido buenos por lo que he decidido dejarla en su estado original.
@@ -220,7 +220,7 @@ La entrada de la imagen consiste en el recorte de la cara detectada en la imagen
 \begin{figure}[H]
   \centering
   \includegraphics[width=100mm, height=80mm]{images/Flowchart_conv.png}
-  \caption{Multilayer Architecture}
+  \caption{Flujo arquitectura convolucional}
 \end{figure}
 
 \section{Resultados}
@@ -236,6 +236,7 @@ Al insertar esta arquitectura en el proceso de streaming los resultados siguiero
 
 \subsection{Video Tutorial}
 Youtube Link:
+\url{https://youtu.be/C1K6JdAoAjA}
 
 \subsection{Demo}
 Youtube Link:

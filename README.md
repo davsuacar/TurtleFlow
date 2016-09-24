@@ -41,3 +41,14 @@ TurtleFlow technologies requirements:
    [Pandas]: <http://pandas.pydata.org/>
    [Scikit-learn]: <http://scikit-learn.org/stable/>
    [Numpy]: <http://www.numpy.org/>
+
+### Doc
+Here you can find a pdf document with the full research process and project architecture.
+[Full Documentation](docs/compiled/turtleflow.pdf)
+
+### Video Tutorial
+Video tutorial explaining the project structure.
+[Video Tutorial]: <https://youtu.be/C1K6JdAoAjA>
+### Demo
+Real demo identifying two different people.
+[Demo]: <https://youtu.be/RxMD2-Wopdw>
