@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/dev/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: turtleflow.aux
+The style file: plain.bst
+Database file #1: turtleflow.bib
+You've used 1 entry,
+            2118 wiz_defined-function locations,
+            502 strings with 4880 characters,
+and the built_in function-call counts, 1451 in all, are:
+= -- 101
+> -- 203
+< -- 0
++ -- 81
+- -- 80
+* -- 165
+:= -- 280
+add.period$ -- 4
+call.type$ -- 1
+change.case$ -- 43
+chr.to.int$ -- 0
+cite$ -- 1
+duplicate$ -- 7
+empty$ -- 23
+format.name$ -- 80
+if$ -- 246
+int.to.chr$ -- 0
+int.to.str$ -- 1
+missing$ -- 0
+newline$ -- 9
+num.names$ -- 2
+pop$ -- 47
+preamble$ -- 1
+purify$ -- 42
+quote$ -- 0
+skip$ -- 6
+stack$ -- 0
+substring$ -- 5
+swap$ -- 1
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 4
+warning$ -- 0
+while$ -- 2
+width$ -- 2
+write$ -- 14

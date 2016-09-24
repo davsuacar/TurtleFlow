@@ -20,12 +20,10 @@ while video_capture.isOpened():
     win.add_overlay(dlib.rectangle(long(260), long(160), long(420), long(320)))
 
     dets = detector(frame)
-    # print("Number of faces detected: {}".format(len(dets)))
 
     for k, d in enumerate(dets):
-        print("Detection {}: Left: {} Top: {} Right: {} Bottom: {}".format(k, d.left(), d.top(), d.right(), d.bottom()))
-        # Get the landmarks/parts for the face in box d.
 
+        # Get the landmarks/parts for the face in box d.
         cv2.imwrite("../img/image_" + str(i) + ".png", frame[d.top():d.top() + d.height(), d.left(): d.left() + d.width()])
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
